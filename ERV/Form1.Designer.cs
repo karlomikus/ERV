@@ -39,6 +39,8 @@
             this.totalTime = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbLocation = new System.Windows.Forms.TextBox();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.dgPrintDocument = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.dgResults)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,6 +57,7 @@
             // 
             // cbUsers
             // 
+            this.cbUsers.DisplayMember = "USERID";
             this.cbUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbUsers.FormattingEnabled = true;
             this.cbUsers.Location = new System.Drawing.Point(12, 29);
@@ -65,7 +68,7 @@
             // 
             // btnCalculate
             // 
-            this.btnCalculate.Location = new System.Drawing.Point(266, 13);
+            this.btnCalculate.Location = new System.Drawing.Point(386, 13);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(114, 44);
             this.btnCalculate.TabIndex = 2;
@@ -125,22 +128,39 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 452);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 13);
+            this.label1.Size = new System.Drawing.Size(108, 13);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Lokacija baze podataka";
+            this.label1.Text = "Naziv baze podataka";
             // 
             // tbLocation
             // 
             this.tbLocation.Location = new System.Drawing.Point(136, 449);
             this.tbLocation.Name = "tbLocation";
+            this.tbLocation.ReadOnly = true;
             this.tbLocation.Size = new System.Drawing.Size(652, 20);
             this.tbLocation.TabIndex = 9;
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Location = new System.Drawing.Point(266, 13);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(114, 44);
+            this.btnPrint.TabIndex = 10;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // dgPrintDocument
+            // 
+            this.dgPrintDocument.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.dgPrintDocument_BeginPrint);
+            this.dgPrintDocument.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.dgPrintDocument_PrintPage);
             // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 477);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.tbLocation);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.totalTime);
@@ -173,6 +193,8 @@
         private System.Windows.Forms.Label totalTime;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbLocation;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Drawing.Printing.PrintDocument dgPrintDocument;
     }
 }
 
