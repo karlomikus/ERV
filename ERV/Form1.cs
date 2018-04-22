@@ -93,7 +93,7 @@ namespace ERV
                 dr[1] = wDate.ToShortDateString();
                 dr[2] = checkInTime.ToShortTimeString() + (!hasCheckedIn ? " (!)" : "");
                 dr[3] = checkOutTime.ToShortTimeString() + (!hasCheckedOut ? " (!)" : "");
-                dr[4] = checkOutTime.Subtract(checkInTime).TotalHours.ToString("0.##");
+                dr[4] = checkOutTime.Subtract(checkInTime).Hours.ToString("0#") + ":" + checkOutTime.Subtract(checkInTime).Minutes.ToString("0#");
 
                 WorkTimeTable.Rows.Add(dr);
                 i++;
